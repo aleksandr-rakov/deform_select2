@@ -1,15 +1,7 @@
-import datetime
-import colander
-import deform
-
-from colander import iso8601
 from deform import ZPTRendererFactory
-from deform.i18n import _
 from pkg_resources import resource_filename
 from pyramid.i18n import get_localizer
 from pyramid.threadlocal import get_current_request
-from pyramid.view import view_config
-from deformdemo import demonstrate, DeformDemo
 
 from deform_select2 import includeme as base_includeme
 
