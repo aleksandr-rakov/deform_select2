@@ -18,7 +18,7 @@
             $("#" + oid).select2({
               tags:[
                 <tal:loop tal:repeat="tag field.widget.tags">
-                    '${tag}',
+                    '${tag.replace("'","\\'")}',
                 </tal:loop>
               ],
               tokenSeparators: [",", " "]
