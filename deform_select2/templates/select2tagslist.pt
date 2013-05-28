@@ -1,0 +1,26 @@
+<span tal:define="name name|field.name;
+                  css_class css_class|field.widget.css_class;
+                  oid oid|field.oid;
+                  style style|field.widget.style|None;
+"
+      tal:omit-tag="">
+    <input type="text" name="${name}" value="${', '.join(cstruct)}" 
+           tal:attributes="class css_class"
+
+           style="min-width:210px;"
+           id="${oid}"/>
+    <script type="text/javascript">
+      deform.addCallback(
+         '${oid}',
+         function (oid) {
+            $("#" + oid).select2({
+              tags:[
+                <tal:loop tal:repeat="tag field.widget.tags">
+                    '${tag}',
+                </tal:loop>
+              ],
+              tokenSeparators: [",", " "]
+            });
+         });
+    </script>
+</span>
