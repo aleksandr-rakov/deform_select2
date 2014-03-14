@@ -31,3 +31,15 @@ class Select2TagsListWidget(Widget):
         if pstruct in (null, self.null_value):
             return self.null_value
         return [x.strip() for x in pstruct.split(',')]
+
+class Select2RemoteWidget(SelectWidget):
+    template = 'select2remote'
+    requirements = (('select2', None), )
+    placeholder=''
+    allowClear=False
+
+    def get_name(self,cstruct):
+        if hasattr(self,'get_name_callback'):
+            return self.get_name_callback(cstruct)
+        else:
+            return cstruct
