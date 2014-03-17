@@ -42,7 +42,9 @@
               id: '${cstruct}',
               text: '<span tal:replace="structure field.widget.get_name(cstruct)" />'
           };
-          $('#' + oid).select2('data',data);
+          if(data.id!==''){
+            $('#' + oid).select2('data',data);
+          }
         }
     );
   </script>
