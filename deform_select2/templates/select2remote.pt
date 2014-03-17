@@ -40,7 +40,7 @@
             });
           var data={
               id: '${cstruct}',
-              text: '${field.widget.get_name(cstruct)}'
+              text: '<span tal:replace="structure field.widget.get_name(cstruct)" />'
           };
           $('#' + oid).select2('data',data);
         }
