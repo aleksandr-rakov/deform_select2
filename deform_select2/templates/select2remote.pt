@@ -21,7 +21,7 @@
             $('#' + oid).select2({
               placeholder: '${field.widget.placeholder or ''}',
               allowClear: ${field.widget.allowClear and 'true' or 'false'},
-              minimumInputLength: 1,
+              minimumInputLength: 0,
               ajax: {
                     url: '${field.widget.source_url}',
                     dataType: 'json',
