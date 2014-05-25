@@ -37,6 +37,7 @@ class Select2RemoteWidget(SelectWidget):
     requirements = (('select2', None), )
     placeholder=''
     allowClear=False
+    inf_scrl=False
 
     def get_name(self,cstruct):
         if hasattr(self,'get_name_callback'):

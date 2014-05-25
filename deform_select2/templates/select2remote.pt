@@ -18,6 +18,7 @@
     deform.addCallback(
         '${field.oid}',
         function(oid) {
+            var inf_scrl=${field.widget.inf_scrl and 'true' or 'false'};
             $('#' + oid).select2({
               placeholder: '${field.widget.placeholder or ''}',
               allowClear: ${field.widget.allowClear and 'true' or 'false'},
@@ -27,14 +28,20 @@
                     dataType: 'json',
                     data: function (term, page) {
                         return {
-                            term: term
+                            term: term,
+                            page: page
                         };
                     },
                     results: function (data, page) {
+                        var more = data && data.length>0;
                         for(var i=0;i<data.length;i++){
                             data[i].text=data[i].value;
                         }
-                        return {results: data};
+                        if(inf_scrl){
+                          return {results: data, more: more};
+                        }else{
+                          return {results: data};
+                        }
                     }
                 }
             });
